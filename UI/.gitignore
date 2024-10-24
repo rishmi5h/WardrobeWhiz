@@ -1,6 +1,0 @@
-.eslintcache
-.pnpm-debug.log
-/node_modules/
-coverage/
-dist/
-tsconfig.tsbuildinfo
