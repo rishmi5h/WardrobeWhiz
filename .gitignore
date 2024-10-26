@@ -13,3 +13,5 @@ tsconfig.tsbuildinfo
 .env.production.local
 
 venv/
+
+node_modules/
