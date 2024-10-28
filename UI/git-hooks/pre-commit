@@ -1,7 +1,33 @@
-#!/bin/sh
-FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
-[ -z "$FILES" ] && exit 0
-echo "$FILES" | xargs pnpm prettier --ignore-unknown --write
-echo "$FILES" | xargs git add
+#!/bin/bash
 
+echo "Running pre-commit hooks..."
+
+# Run ESLint
+echo "Running ESLint..."
+npx eslint . --ext .js,.jsx,.ts,.tsx
+
+if [ $? -ne 0 ]; then
+  echo "ESLint check failed. Please fix the errors before committing."
+  exit 1
+fi
+
+# Run Prettier
+echo "Running Prettier check..."
+npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,scss}"
+
+if [ $? -ne 0 ]; then
+  echo "Prettier check failed. Please format your code before committing."
+  exit 1
+fi
+
+# Run TypeScript compilation check
+echo "Running TypeScript check..."
+npx tsc --noEmit
+
+if [ $? -ne 0 ]; then
+  echo "TypeScript check failed. Please fix type errors before committing."
+  exit 1
+fi
+
+echo "All pre-commit hooks passed successfully!"
 exit 0
