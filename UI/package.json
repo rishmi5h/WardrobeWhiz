@@ -1,62 +1,48 @@
 {
-  "name": "@nkzw/vite-ts-react-tailwind",
-  "version": "0.0.1",
-  "author": "Christoph Nakazawa <christoph.pojer@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/cpojer/vite-ts-react-tailwind.git"
-  },
-  "type": "module",
-  "engines": {
-    "node": ">=22.0.0",
-    "pnpm": ">=9.0.0"
-  },
+  "name": "wardrobe-whiz",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.13.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.1",
+    "styled-components": "^5.3.10"
   },
   "devDependencies": {
-    "@ianvs/prettier-plugin-sort-imports": "^4.2.1",
-    "@nkzw/eslint-config": "^1.16.0",
-    "@swc/core": "^1.6.5",
-    "@types/node": "^20.14.8",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "npm-run-all2": "^6.2.0",
-    "postcss": "^8.4.38",
-    "prettier": "^3.3.2",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "tailwindcss": "^3.4.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.5.2",
-    "vite": "^5.3.6",
-    "vitest": "^1.6.0"
+    "@types/node": "^16.18.27",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@types/styled-components": "^5.1.26",
+    "@typescript-eslint/eslint-plugin": "^5.59.5",
+    "@typescript-eslint/parser": "^5.59.5",
+    "eslint": "^8.40.0",
+    "eslint-plugin-react": "^7.32.2",
+    "prettier": "^2.8.8",
+    "typescript": "^4.9.5",
+    "react-scripts": "5.0.1"
   },
   "scripts": {
-    "preinstall": "command -v git >/dev/null 2>&1 && git config core.hooksPath git-hooks || true",
-    "build": "vite build",
-    "dev:update-deps": "rm -rf pnpm-lock.yaml node_modules/ **/node_modules && pnpm install",
-    "dev": "vite dev",
-    "format": "prettier --write .",
-    "lint:format": "prettier --cache --check .",
-    "lint": "eslint --cache .",
-    "test": "npm-run-all --parallel tsc:check vitest:run lint lint:format",
-    "tsc:check": "tsc",
-    "vitest:run": "vitest run"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "lint": "eslint src --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css,scss}\""
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not op_mini all"
-  ],
-  "pnpm": {
-    "updateConfig": {
-      "ignoreDependencies": [
-        "eslint"
-      ]
-    }
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
